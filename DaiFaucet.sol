@@ -30,3 +30,10 @@ contract mortal is owned {
         // selfdestruct(msg.sender);
     }    
 }
+
+
+contract DaiFaucet is mortal {
+    
+    event Withdrawal(address indexed to, uint amount);
+    event Deposit(address indexed from, uint amount);
+}
