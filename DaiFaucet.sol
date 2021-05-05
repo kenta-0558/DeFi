@@ -24,15 +24,9 @@ contract owned {
 }
 
 
-// contract mortal is owned {
-//     function destroy() public onlyOwner {
-//         daiToken.transfer(owner, daiToken.balanceOf(address(this)));
-//         // selfdestruct(msg.sender);
-//     }    
-// }
 contract mortal is owned {
-    function withdraw() public onlyOwner {
+    function destroy() public onlyOwner {
         daiToken.transfer(owner, daiToken.balanceOf(address(this)));
         // selfdestruct(msg.sender);
-    }      
+    }    
 }
