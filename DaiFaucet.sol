@@ -28,7 +28,7 @@ contract owned {
 contract mortal is owned {
     function destroy() public onlyOwner {
         daiToken.transfer(owner, daiToken.balanceOf(address(this)));
-        // selfdestruct(msg.sender);
+        // selfdestruct(msg.sender); msg.sender???
     }    
 }
 
