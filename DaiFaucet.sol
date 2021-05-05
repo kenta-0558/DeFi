@@ -37,6 +37,14 @@ contract DaiFaucet is mortal {
     event Withdrawal(address indexed to, uint amount);
     event Deposit(address indexed from, uint amount);
 
+    function withdraw(uint _amount) public {
+        
+        require(daiToken.balanceOf(address(this)) >= _amount, "You do not have so many dai token");
+        
+        daiToken.transfer(msg.sender, _amount);
+        emit Withdrawal(msg.sender, _amount);
+    }
+
     fallback () external payable {
         emit Deposit(msg.sender, msg.value);
     }
